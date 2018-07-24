@@ -73,8 +73,10 @@ eventPublisher.publishEvent = function(eventKey, event) {
   });
 };
 
+var counter = 0;
 function addOne() {
-  eventPublisher.publishEvent("mykey", { msg: x, kafka: "aareon" });
+  counter++;
+  eventPublisher.publishEvent("mykey", { msg: counter, kafka: "aareon" });
 }
 
 //add it by calling .add
