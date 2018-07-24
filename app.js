@@ -86,3 +86,9 @@ il.add(addOne, []);
 setTimeout(function() {
   il.run();
 }, 3000);
+
+
+/* Kafka Performance Test
+https://community.hortonworks.com/content/supportkb/151880/errorexception-thrown-by-the-agent-javarmiserverex.html
+./bin/kafka-run-class.sh org.apache.kafka.tools.ProducerPerformance --throughput=1000 --topic=MY_TOPIC --num-records=50000000 --record-size=200 --producer-props bootstrap.servers=212.47.241.204:32400 buffer.memory=67108864 batch.size=64000
+*/
