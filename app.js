@@ -73,9 +73,9 @@ eventPublisher.publishEvent = function(eventKey, event) {
 
 //example calls: (after waiting for three seconds to give the producer time to initialize)
 setTimeout(function() {
-  let i,
+  let countI,
     x = 0;
-  while (i < 10) {
+  while (countI < 10) {
     eventPublisher.publishEvent("mykey", { msg: x, kafka: "aareon" });
     x = x + 1;
   }
