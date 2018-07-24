@@ -1,5 +1,7 @@
 // before running, either globally install kafka-node  (npm install kafka-node)
 // or add kafka-node to the dependencies of the local application
+var InfiniteLoop = require("infinite-loop");
+var il = new InfiniteLoop();
 
 var kafka = require("kafka-node");
 var Producer = kafka.Producer;
@@ -71,12 +73,14 @@ eventPublisher.publishEvent = function(eventKey, event) {
   });
 };
 
+function addOne() {
+  eventPublisher.publishEvent("mykey", { msg: x, kafka: "aareon" });
+}
+
+//add it by calling .add
+il.add(addOne, []);
+
 //example calls: (after waiting for three seconds to give the producer time to initialize)
 setTimeout(function() {
-  let countI,
-    x = 0;
-  while (countI < 10) {
-    eventPublisher.publishEvent("mykey", { msg: x, kafka: "aareon" });
-    x = x + 1;
-  }
+  il.run();
 }, 3000);
