@@ -30,6 +30,13 @@ producer.on("ready", function() {
         function(err, result) {
           console.log(err || result);
           process.exit();
+          console.log("-- " + x + " ---");
+          if(err) {
+              console.log(err);
+          } else {
+              console.log("Result: \n" + result);
+          }
+
         }
       );
 }
