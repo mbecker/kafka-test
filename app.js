@@ -99,7 +99,7 @@ Single producer publishing 1000 byte messages with no replication
 # create kafka topic
 ./bin/kafka-topics.sh --zookeeper zookeeper.kafka:2181 --create --topic test --partitions 48 --replication-factor 1
 # run the producer to publish events to Kafka topic
-bin/kafka-run-class.sh org.apache.kafka.tools.ProducerPerformance --topic test --num-records 50000000 --record-size 1000 --throughput -1 --producer-props acks=1 bootstrap.servers=212.47.241.204:32400 buffer.memory=104857600 batch.size=9000
+./bin/kafka-run-class.sh org.apache.kafka.tools.ProducerPerformance --topic test --num-records 50000000 --record-size 100 --throughput -1 --producer-props acks=1 bootstrap.servers=212.47.241.204:32400 buffer.memory=104857600 batch.size=9000
 
 Single producer publishing 500 byte messages with (3x) and with out replication
 The objective of this test is to understand the cost of the replication
